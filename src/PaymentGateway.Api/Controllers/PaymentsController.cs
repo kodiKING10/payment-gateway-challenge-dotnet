@@ -31,10 +31,10 @@ public class PaymentsController : Controller
     }
 
     [HttpGet("{id:guid}")]
-    public async Task<ActionResult<ProcessPaymentResponse?>> GetPayment(Guid id)
+    public ActionResult<ProcessPaymentResponse?> GetPayment(Guid id)
     {
         var payment = _paymentsRepository.Get(id);
 
-        return new OkObjectResult(payment);
+        return Ok(payment);
     }
 }

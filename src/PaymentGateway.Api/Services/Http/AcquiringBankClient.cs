@@ -19,6 +19,9 @@ namespace PaymentGateway.Api.Services.Http
 
         public async Task<Result<AcquiringBankCreateProcessResponse>> CreatePaymentProcess(AcquiringBankCreateProcessRequest request)
         {
+            //Should probably add some logs here in case of an error from the side of the acquiringBank
+            //Some retry policy and circuit breaker would be nice aswell
+
             var response = await _httpClient.PostAsJsonAsync("payments", request);
 
             if (response.IsSuccessStatusCode)

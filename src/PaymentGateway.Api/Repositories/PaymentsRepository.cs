@@ -11,6 +11,7 @@ public interface IPaymentsRepository
 
 public sealed class PaymentsRepository : IPaymentsRepository
 {
+    //With a real database should probably make the identifier unique to avoid duplicates
     public List<ProcessPaymentResponse> Payments = new();
 
     public void Add(ProcessPaymentResponse payment)
@@ -20,6 +21,6 @@ public sealed class PaymentsRepository : IPaymentsRepository
 
     public ProcessPaymentResponse Get(Guid id)
     {
-        return Payments.FirstOrDefault(p => p.Id == id);
+        return Payments.FirstOrDefault(p => p.Id == id)!;
     }
 }

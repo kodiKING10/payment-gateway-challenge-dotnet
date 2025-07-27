@@ -12,12 +12,12 @@ public sealed class ProcessPaymentResponse
         ExpiryMonth = request.ExpiryMonth;
         ExpiryYear = request.ExpiryYear;
         Status = status;
-        CardNumberLastFour = int.Parse(request.CardNumber[^4..]);
+        LastFourCardDigits = int.Parse(request.CardNumber.Substring(request.CardNumber.Length - 4));
     }
 
     public Guid Id { get; set; }
     public PaymentStatus Status { get; set; }
-    public int CardNumberLastFour { get; set; }
+    public int LastFourCardDigits { get; set; }
     public int ExpiryMonth { get; set; }
     public int ExpiryYear { get; set; }
     public string Currency { get; set; }
