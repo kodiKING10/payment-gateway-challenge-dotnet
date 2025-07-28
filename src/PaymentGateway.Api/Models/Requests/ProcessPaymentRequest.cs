@@ -38,7 +38,7 @@ public sealed class ProcessPaymentRequestValidator : AbstractValidator<ProcessPa
         //https://www.xe.com/currency/ , and i'm guessing i can choose which ones.
         RuleFor(x => x.Currency)
             .NotEmpty()
-            .Must(c => AllowedCurrencies.Contains(c)).WithMessage("{PropertyName} must be one of the following: USD, EUR, BRL.");
+            .Must(c => AllowedCurrencies.Contains(c)).WithMessage("{PropertyName} must be one of the following: GBP, EUR, BRL.");
 
         RuleFor(x => x.Amount)
             .NotEmpty();
