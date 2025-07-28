@@ -19,6 +19,7 @@ public class PaymentsController : Controller
         _paymentsProcessorHandler = paymentsProcessorHandler;
     }
 
+    //Would add a exception handler middleware at least, probably not over-engineering to do so
     [HttpPost]
     public async Task<ActionResult<ProcessPaymentResponse?>> PostPayment(ProcessPaymentRequest request)
     {
@@ -35,6 +36,6 @@ public class PaymentsController : Controller
     {
         var payment = _paymentsRepository.Get(id);
 
-        return Ok(payment);
+        return payment is null ? NotFound() : Ok(payment);
     }
 }

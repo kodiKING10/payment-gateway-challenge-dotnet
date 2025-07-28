@@ -14,7 +14,7 @@ public sealed class ProcessPaymentRequest
 
 public sealed class ProcessPaymentRequestValidator : AbstractValidator<ProcessPaymentRequest>
 {
-    private static readonly string[] AllowedCurrencies = { "USD", "EUR", "BRL" };
+    private static readonly string[] AllowedCurrencies = { "GBP", "EUR", "BRL" };
 
     public ProcessPaymentRequestValidator()
     {

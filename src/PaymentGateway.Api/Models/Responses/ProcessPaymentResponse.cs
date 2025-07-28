@@ -4,6 +4,11 @@ namespace PaymentGateway.Api.Models.Responses;
 
 public sealed class ProcessPaymentResponse
 {
+    public ProcessPaymentResponse()
+    {
+
+    }
+
     public ProcessPaymentResponse(ProcessPaymentRequest request, PaymentStatus status)
     {
         Id = Guid.NewGuid();

@@ -13,7 +13,7 @@ namespace PaymentGateway.Api.Services
         Task<Result<ProcessPaymentResponse>> Create(ProcessPaymentRequest request);
     }
 
-    public class PaymentsProcessorHandler : IPaymentsProcessorHandler
+    public sealed class PaymentsProcessorHandler : IPaymentsProcessorHandler
     {
         private readonly IAcquiringBankClient _acquiringBankClient;
         private readonly IPaymentsRepository _paymentsRepository;
@@ -26,6 +26,7 @@ namespace PaymentGateway.Api.Services
 
         public async Task<Result<ProcessPaymentResponse>> Create(ProcessPaymentRequest request)
         {
+            //Would add unit tests to this class and constructors if the integration tests didn`t covered almost everything
             var acquiringBankRequest
                 = new AcquiringBankCreateProcessRequest(request.CardNumber, $"{request.ExpiryMonth}/{request.ExpiryYear}", request.Currency, request.Amount, request.Cvv);
 
